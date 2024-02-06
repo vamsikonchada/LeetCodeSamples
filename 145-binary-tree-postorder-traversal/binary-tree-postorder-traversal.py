@@ -18,5 +18,17 @@ class Solution(object):
         :rtype: List[int]
         """
         ans = []
-        self.postorderHelper(root, ans)
+        #self.postorderHelper(root, ans)
+        if root == None:
+            return ans
+        mystack = [root]
+
+        while mystack:
+            node = mystack.pop()
+            ans.insert(0, node.val)
+            if (node.left):
+                mystack.append(node.left)
+            if (node.right):
+                mystack.append(node.right)
+        
         return ans
